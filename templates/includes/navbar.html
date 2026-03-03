@@ -1,0 +1,938 @@
+{% load static %}
+<div class="main-navigation">
+        <nav class="navbar light navbar-expand-lg">
+            <div class="container position-relative">
+                <a class="navbar-brand" href="index-2.html">
+                    <img alt="logo" class="logo-scrolled" src="{% static "img/logo/logo.png" %}"/>
+                </a>
+                <div class="category-all">
+                    <button class="category-btn" type="button">
+                        <i class="fas fa-list-ul">
+                        </i>
+                        <span>
+		 همه دسته ها
+		</span>
+                    </button>
+                    <ul class="main-category">
+                        <li>
+                            <a href="#">
+                                <img alt="" src="{% static "img/icon/new.svg" %}"/>
+                                <span>
+		   ورودی های جدید
+		  </span>
+                                <i class="far fa-angle-left">
+                                </i>
+                            </a>
+                            <div class="sub-category-mega">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="category-single">
+                                            <h6 class="category-title-text">
+                                                شیوه
+                                            </h6>
+                                            <div class="category-link">
+                                                <a href="shop-grid.html">
+                                                    پیراهن زنانه
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    تیشرت مردانه
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    شیشه آفتابی زنانه
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    کیف های کراس بادی
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    ساعت مچی زنانه
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    پیراهن مردانه
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    شلوار رسمی
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="category-single">
+                                            <h6 class="category-title-text">
+                                                لوازم جانبی
+                                            </h6>
+                                            <div class="category-link">
+                                                <a href="shop-grid.html">
+                                                    کیف مسافرتی
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    النگو و دستبند
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    لوازم جانبی مو
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    فروشنده
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    چمدان و کیف پول
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    ساعت و عینک آفتابی
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    کفش و ساعت
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="category-single">
+                                            <h6 class="category-title-text">
+                                                الکترونیک
+                                            </h6>
+                                            <div class="category-link">
+                                                <a href="shop-grid.html">
+                                                    لپ تاپ و دسکتاپ
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    تلفن و تبلت
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    ویش لیست من
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    هاب و اسکله
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    هدفون بلوتوث
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    گوینده و تئاتر
+                                                </a>
+                                                <a href="shop-grid.html">
+                                                    گجت و مانیتور
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="category-img">
+                                            <a href="#">
+                                                <img alt="" src="{% static "img/banner/category-banner.jpg" %}"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="{% static "img/icon/fashion.svg" %}"/>
+                                <span>
+		   مد و
+										لوازم جانبی
+		  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="{% static "img/icon/electronics.svg" %}"/>
+                                <span>
+		   الکترونیک
+		  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="{% static "img/icon/grocery.svg" %}"/>
+                                <span>
+		   مواد غذایی و
+										بازار
+		  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="{% static "img/icon/furniture.svg" %}"/>
+                                <span>
+		   خانه و
+										مبلمان
+		  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="{% static "img/icon/music.svg" %}"/>
+                                <span>
+		   موسیقی و صدا
+		  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="a{% static "img/icon/toy.svg" %}"/>
+                                <span>
+		   اسباب بازی و بازی های ویدیویی
+		  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="{% static "img/icon/gift.svg" %}"/>
+                                <span>
+		   هدایا
+		  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="{% static "img/icon/baby-mom.svg" %}"/>
+                                <span>
+		   نوزادان و
+										مامان ها
+		  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="{% static "img/icon/beauty.svg" %}"/>
+                                <span>
+		   سلامتی و
+										زیبایی
+		  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="{% static "img/icon/sports.svg" %}"/>
+                                <span>
+		   ورزش و
+										فضای باز
+		  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="{% static "img/icon/garden.svg" %}"/>
+                                <span>
+		   خانه و باغ
+		  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-grid.html">
+                                <img alt="" src="{% static "img/icon/automotive.svg" %}"/>
+                                <span>
+		   خودرو
+		  </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mobile-menu-right">
+                    <div class="mobile-menu-btn">
+                        <a class="nav-right-link search-box-outer" href="#">
+                            <i class="far fa-search">
+                            </i>
+                        </a>
+                        <a class="nav-right-link" href="wishlist.html">
+                            <i class="far fa-heart">
+                            </i>
+                            <span>
+		  2
+		 </span>
+                        </a>
+                        <a class="nav-right-link" href="shop-cart.html">
+                            <i class="far fa-shopping-bag">
+                            </i>
+                            <span>
+		  5
+		 </span>
+                        </a>
+                    </div>
+                    <button aria-controls="offcanvasNavbar" aria-label="Toggle navigation" class="navbar-toggler"
+                            data-bs-target="#offcanvasNavbar" data-bs-toggle="offcanvas" type="button">
+		<span>
+		</span>
+                        <span>
+		</span>
+                        <span>
+		</span>
+                    </button>
+                </div>
+                <div aria-labelledby="offcanvasNavbarLabel" class="offcanvas offcanvas-start" id="offcanvasNavbar"
+                     tabindex="-1">
+                    <div class="offcanvas-header">
+                        <a class="offcanvas-brand" href="index-2.html" id="offcanvasNavbarLabel">
+                            <img alt="" src="{% static "img/logo/logo.png" %}"/>
+                        </a>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas" type="button">
+                        </button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">
+                                    خانه
+                                </a>
+                                <ul class="dropdown-menu fade-down">
+                                    <li>
+                                        <a class="dropdown-item" href="index.html">
+                                            صفحه خانه ۱
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="index-3.html">
+                                            صفحه خانه ۲
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="index-4.html">
+                                            صفحه خانه ۳
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="index-5.html">
+                                            صفحه خانه ۴
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="index-6.html">
+                                            صفحه خانه ۵
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="index-7.html">
+                                            صفحه خانه ۶
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="index-8.html">
+                                            صفحه خانه ۷
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="index-9.html">
+                                            صفحه خانه ۸
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="index-10.html">
+                                            صفحه خانه ۹
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="index-11.html">
+                                            صفحه خانه ۱۰
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">
+                                    درباره ما
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                                    صفحات
+                                </a>
+                                <ul class="dropdown-menu fade-down">
+                                    <li>
+                                        <a class="dropdown-item" href="about.html">
+                                            درباره ما
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="become-seller.html">
+                                            فروشنده شوید
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="brand.html">
+                                            برندها
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" href="#">
+                                            ورزش و فضای باز
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="category.html">
+                                                    دسته یک
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="category-2.html">
+                                                    دسته دو
+                                                </a>
+                                            <li>
+                                                <a class="dropdown-item" href="category-3.html">
+                                                    مشاهده سبد خرید
+                                                </a>
+                                            <li>
+                                                <a class="dropdown-item" href="category-4.html">
+                                                    دسته چهار
+                                                </a>
+                                            </li>
+                                    </li>
+                            </li>
+                        </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">
+                                احراز هویت
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="login.html">
+                                        وارد شوید
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="register.html">
+                                        ثبت نام کنید
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="forgot-password.html">
+                                        فراموش کرد
+                                        رمز عبور
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">
+                                صفحات اضافی
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="coming-soon.html">
+                                        برای مشاهده بیشتر پیمایش کنید
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="return.html">
+                                        سیاست بازگشت
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="terms.html">
+                                        شرایط خدمات
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="privacy.html">
+                                        سیاست حفظ حریم
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="mail-success.html">
+                                        ایمیل موفقیت
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="team.html">
+                                تیم ما
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="affiliate.html">
+                                افیلیت
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="gallery.html">
+                                گالری ما
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="contact.html">
+                                با ما تماس بگیرید
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="help.html">
+                                راهنما
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="invoice.html">
+                                فاکتورها
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="faq.html">
+                                سوالات متداول
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="testimonial.html">
+                                توصیفات
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="404.html">
+                                خطای 404
+                            </a>
+                        </li>
+                        </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                                حساب
+                            </a>
+                            <ul class="dropdown-menu fade-down">
+                                <li>
+                                    <a class="dropdown-item" href="dashboard.html">
+                                        داشبورد
+                                    </a>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        فروشنده
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="vendors.html">
+                                                همه فروشگاه ها
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="vendor-profile.html">
+                                                پروفایل فروشنده
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="vendor-store.html">
+                                                فروشگاه فروشنده
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="vendor-product.html">
+                                                محصولات فروشنده
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="vendor-product-add.html">
+                                                افزودن محصول فروشنده
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="vendor-payout.html">
+                                                پرداخت فروشنده
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="profile.html">
+                                        پروفایل من
+                                    </a>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        دکوراسیون
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="order-list.html">
+                                                لیست سفارشات
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="order-detail.html">
+                                                فروشگاه گرید
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="order-track.html">
+                                                وضعیت سفارش
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="wishlist.html">
+                                        ویش لیست من
+                                    </a>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        آدرس
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="address-list.html">
+                                                لیست آدرس
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="address-add.html">
+                                                آدرس افزودن
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        بلیط های پشتیبانی
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="support-ticket.html">
+                                                پشتیبانی کنید
+                                                بلیط
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="support-ticket-detail.html">
+                                                بلیط پشتیبانی
+                                                جزئیات
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        روش های پرداخت
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="payment-method.html">
+                                                پرداخت
+                                                روش ها
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="payment-add.html">
+                                                افزودن روش پرداخت
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="transaction.html">
+                                        معامله
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="notification.html">
+                                        اطلاع رسانی
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="message.html">
+                                        پیام ها
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="setting.html">
+                                        تنظیمات
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mega-menu dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                                منو
+                            </a>
+                            <div class="dropdown-menu fade-down">
+                                <div class="mega-content">
+                                    <div class="container-fluid px-lg-0">
+                                        <div class="row">
+                                            <div class="col-12 col-lg-2">
+                                                <h5 class="mega-menu-title">
+                                                    شیوه
+                                                </h5>
+                                                <ul class="mega-menu-item">
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            پیراهن زنانه
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            تیشرت مردانه
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            شیشه آفتابی زنانه
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            کیف های کراس بادی
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            پیراهن مردانه
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            شلوار رسمی
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-12 col-lg-2">
+                                                <h5 class="mega-menu-title">
+                                                    لوازم جانبی
+                                                </h5>
+                                                <ul class="mega-menu-item">
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            کیف مسافرتی
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            لوازم جانبی مو
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            فروشنده
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            چمدان و کیف پول
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            ساعت و عینک آفتابی
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            کفش و ساعت
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-12 col-lg-2">
+                                                <h5 class="mega-menu-title">
+                                                    خانه و مبلمان
+                                                </h5>
+                                                <ul class="mega-menu-item">
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            فروشگاه گرید
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            اتاق نشیمن
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            فروشگاه گرید یک
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            دکوراسیون
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            دفتر
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            آشپزخانه
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-12 col-lg-2">
+                                                <h5 class="mega-menu-title">
+                                                    الکترونیک
+                                                </h5>
+                                                <ul class="mega-menu-item">
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            لپ تاپ و دسکتاپ
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            تلفن و تبلت
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            ویش لیست من
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            هاب و اسکله
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            گوینده و تئاتر
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="shop-grid.html">
+                                                            گجت و مانیتور
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-12 col-lg-4">
+                                                <div class="mega-menu-img">
+                                                    <a href="#">
+                                                        <img alt=""
+                                                             src="{% static "img/banner/mega-menu-banner.jpg" %}"/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                                مغازه
+                            </a>
+                            <ul class="dropdown-menu fade-down">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        فروشگاه گرید
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="shop-grid.html">
+                                                فروشگاه گرید یک
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="shop-grid-2.html">
+                                                فروشگاه گرید دو
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        لیست فروشگاه
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="shop-list.html">
+                                                تسویه حساب
+                                                کامل
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="shop-list-2.html">
+                                                لیست فروشگاه ۲
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="shop-search.html">
+                                        جستجوی فروشگاه
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="shop-cart.html">
+                                        سبد خرید
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="shop-checkout.html">
+                                        پرداخت
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="shop-checkout-complete.html">
+                                        نوار کناری شبکه وبلاگ
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="shop-single.html">
+                                        سینگل بلاگ
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="shop-single-2.html">
+                                        سینگل بلاگ
+                                        نوار کناری
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="shop-compare.html">
+                                        سبد خرید
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                                وبلاگ
+                            </a>
+                            <ul class="dropdown-menu fade-down">
+                                <li>
+                                    <a class="dropdown-item" href="blog-grid.html">
+                                        شبکه وبلاگ
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blog-grid-sidebar.html">
+                                        نوار کناری شبکه وبلاگ
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blog-single.html">
+                                        سینگل بلاگ
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blog-single-sidebar.html">
+                                        سینگل بلاگ
+                                        نوار کناری
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">
+                                تماس
+                            </a>
+                        </li>
+                        </ul>
+                        <!-- nav-right -->
+                        <div class="nav-right">
+                            <a class="nav-right-link" href="shop-grid.html">
+                                <i class="fal fa-star">
+                                </i>
+                                اخیرا مشاهده شده است
+                            </a>
+                            <a class="nav-right-link" href="order-track.html">
+                                <i class="fal fa-truck-fast">
+                                </i>
+                                وضعیت سفارش من
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>

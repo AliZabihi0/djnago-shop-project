@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <!-- mobile popup search -->
+  <div class="search-popup">
+   <button class="close-search">
+	<span class="far fa-times">
+	</span>
+   </button>
+   <form action="#">
+	<div class="form-group">
+	 <input class="form-control" name="search-field" placeholder="اینجا جستجو کنید ..." required="" type="search"/>
+	 <button type="submit">
+	  <i class="far fa-search">
+	  </i>
+	 </button>
+	</div>
+   </form>
+  </div>
+  <!-- mobile popup search end -->
+  <main class="main">
+   <!-- breadcrumb -->
+    <main class="main">
+   <!-- breadcrumb -->
+   <div class="site-breadcrumb">
+	<div class="site-breadcrumb-bg" style="background: url({% static 'img/breadcrumb/01.jpg' %})">
+	</div>
+	<div class="container">
+	 <div class="site-breadcrumb-wrap">
+	  <h4 class="breadcrumb-title">
+	   لیست آدرس
+	  </h4>
+	  <ul class="breadcrumb-menu">
+	   <li>
+		<a href="index-2.html">
+		 <i class="far fa-home">
+		 </i>
+		 خانه
+		</a>
+	   </li>
+	   <li class="active">
+		لیست آدرس
+	   </li>
+	  </ul>
+	 </div>
+	</div>
+   </div>
+   <!-- breadcrumb end -->
+   <!-- user address list -->
+   {% include "account/includes/side_bar.html" %}
+	  <div class="col-lg-9">
+	   <div class="user-wrapper">
+		<div class="row">
+		 <div class="col-lg-12">
+		  <div class="user-card">
+		   <div class="user-card-header">
+			<h4 class="user-card-title">
+			 لیست آدرس
+			</h4>
+			<div class="user-card-header-right">
+			 <a class="theme-btn" href="{% url "account:add_address" %}">
+			  <span class="far fa-plus-circle" style="transform: rotate(180deg);">
+			  </span>
+			  اضافه کردن آدرس
+			 </a>
+			</div>
+		   </div>
+		   <div class="table-responsive">
+			<table class="table table-borderless text-nowrap">
+			 <thead>
+			  <tr>
+			   <th>
+				نام
+			   </th>
+			   <th>
+				آدرس
+			   </th>
+                   <th>
+				کدپستی
+			   </th>
+			   <th>
+				ایمیل
+			   </th>
+			   <th>
+				تلفن
+			   </th>
+			   <th>
+				اقدام
+			   </th>
+			  </tr>
+			 </thead>
+			 <tbody>
+             {% for item in addresses %}
+			  <tr>
+			   <td>
+				<span class="table-list-code">
+				    {{ item.first_name }}
+				</span>
+
+			   </td>
+			   <td>
+				{{ item.address }}
+			   </td>
+                  <td>
+				{{ item.zipcode }}
+			   </td>
+			   <td>
+				<a class="__cf_email__" data-cfemail="bbdad5cfd4d5d2fbdec3dad6cbd7de95d8d4d6" href="#">
+				 {{ item.email }}
+				</a>
+			   </td>
+			   <td>
+                   {{ item.phone }}
+			   </td>
+			   <td>
+				<a class="btn btn-outline-secondary btn-sm rounded-2" data-tooltip="tooltip" href="#" title="تغییر">
+				 <i class="far fa-pen">
+				 </i>
+				</a>
+				<a class="btn btn-outline-danger btn-sm rounded-2" data-tooltip="tooltip" href="#" title="حذف">
+				 <i class="far fa-trash-can">
+				 </i>
+				</a>
+			   </td>
+			  </tr>
+			  {% endfor %}
+			 </tbody>
+			</table>
+		   </div>
+		  </div>
+		 </div>
+		</div>
+	   </div>
+	  </div>
+	 </div>
+	</div>
+   </div>
+   <!-- user address list end -->
+  </main>
+{% endblock %}

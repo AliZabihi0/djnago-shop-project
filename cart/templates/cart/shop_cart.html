@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  <!-- mobile popup search end -->
+  <main class="main">
+   <!-- breadcrumb -->
+   <div class="site-breadcrumb">
+	<div class="site-breadcrumb-bg" style="background: url({% static "img/breadcrumb/01.jpg" %})">
+	</div>
+	<div class="container">
+	 <div class="site-breadcrumb-wrap">
+	  <h4 class="breadcrumb-title">
+	   سبد خرید
+	  </h4>
+	  <ul class="breadcrumb-menu">
+	   <li>
+		<a href="{% url "home:home" %}">
+		 <i class="far fa-home">
+		 </i>
+		 خانه
+		</a>
+	   </li>
+	   <li class="active">
+		سبد خرید
+	   </li>
+	  </ul>
+	 </div>
+	</div>
+   </div>
+   <!-- breadcrumb end -->
+   <!-- shop cart -->
+   <div class="shop-cart py-100">
+	<div class="container">
+	 <div class="shop-cart-wrap">
+	  <div class="row">
+	   <div class="col-lg-8">
+		<div class="cart-table">
+		 <div class="table-responsive">
+		  <table class="table">
+		   <thead>
+			<tr>
+			 <th>
+			  تصویر
+			 </th>
+			 <th>
+			  نام محصول
+			 </th>
+			 <th>
+			  قیمت
+			 </th>
+			 <th>
+			  مقدار
+			 </th>
+			 <th>
+			   مجموع
+			 </th>
+			 <th>
+			 </th>
+			</tr>
+		   </thead>
+		   <tbody>
+           {% for item in cart %}
+			<tr>
+			 <td>
+
+			  <div class="shop-cart-img">
+			   <a href="{% url "product:product_detail" item.product.id %}">
+				<img alt="" src="{{ item.product.image.url }}"/>
+			   </a>
+			  </div>
+			 </td>
+			 <td>
+			  <div class="shop-cart-content">
+			   <h5 class="shop-cart-name">
+				<a href="{% url "product:product_detail" item.product.id %}">
+                    {{ item.product.name  }}
+				</a>
+			   </h5>
+			   <div class="shop-cart-info">
+				<p>
+                    {% if item.size %}
+				 <span>
+				  سایز:
+				 </span>
+				 {{ item.size }}
+				</p>
+                   {% endif %}
+				<p>
+				 <span>
+				  رنگ:
+				 </span>
+				{{ item.color }}
+				</p>
+			   </div>
+			  </div>
+			 </td>
+			 <td>
+			  <div class="shop-cart-price">
+			   <span>
+				{{ item.price }}
+			   </span>
+			  </div>
+			 </td>
+			 <td>
+			  <div class="shop-cart-qty">
+			   <p>{{ item.quantity }}</p>
+			  </div>
+			 </td>
+			 <td>
+			  <div class="shop-cart-subtotal">
+			   <span>
+				{{ item.total }}
+			   </span>
+			  </div>
+			 </td>
+			 <td>
+			  <a class="shop-cart-remove"  href="{% url "cart:remove_cart" item.unique_id %}">
+			   <i class="far fa-times">
+			   </i>
+			  </a>
+			 </td>
+			</tr>
+            {% endfor %}
+		   </tbody>
+		  </table>
+		 </div>
+		</div>
+		<div class="shop-cart-footer">
+		 <div class="row">
+
+		  <div class="col-md-5 col-lg-6">
+		   <div class="shop-cart-btn text-md-end">
+			<a class="theme-btn" href="#">
+			 <span class="fas fa-arrow-right" style="transform: rotate(0);">
+			 </span>
+			 به خرید ادامه دهید
+			</a>
+		   </div>
+		  </div>
+		 </div>
+		</div>
+	   </div>
+	   <div class="col-lg-4">
+		<div class="shop-cart-summary">
+		 <h5>
+		  خلاصه سبد خرید
+		 </h5>
+		 <ul>
+		  <li>
+		   <strong>
+			مجموع ناخالص:
+		   </strong>
+		   <span>
+			{{ cart.total }}
+		   </span>
+		  </li>
+		  <li>
+		   <strong>
+			تخفیف:
+		   </strong>
+		   <span>
+			$5.00
+		   </span>
+		  </li>
+		  <li>
+		   <strong>
+			حمل و نقل:
+		   </strong>
+		   <span>
+			رایگان
+		   </span>
+		  </li>
+		  <li>
+		   <strong>
+			مالیات:
+		   </strong>
+		   <span>
+			$25.00
+		   </span>
+		  </li>
+		  <li class="shop-cart-total">
+		   <strong>
+			مجموع:
+		   </strong>
+		   <span>
+			{{ cart.total }}
+		   </span>
+		  </li>
+		 </ul>
+		 <div class="text-end mt-40">
+		  <a class="theme-btn" href="{% url "cart:add_order" %}">
+		   اکنون پرداخت کنید
+		   <i class="fas fa-arrow-left">
+		   </i>
+		  </a>
+		 </div>
+		</div>
+	   </div>
+	  </div>
+	 </div>
+	</div>
+   </div>
+   <!-- shop cart end -->
+  </main>
+{% endblock %}

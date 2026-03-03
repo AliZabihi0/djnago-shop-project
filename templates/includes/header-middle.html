@@ -1,0 +1,247 @@
+{% load static %}
+<div class="header-middle">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-5 col-lg-3 col-xl-3">
+                <div class="header-middle-logo">
+                    <a class="navbar-brand" href="{% url "home:home" %}">
+                        <img alt="logo" src="{% static "img/logo/logo.png" %}"/>
+                    </a>
+                </div>
+            </div>
+            <div class="d-none d-lg-block col-lg-6 col-xl-5">
+                <div class="header-middle-search">
+                    <form action="#">
+                        <div class="search-content">
+                            <select class="select">
+                                <option value="">
+                                    همه دسته
+                                </option>
+                                <option value="1">
+                                    تخفیف های داغ امروز
+                                </option>
+                                <option value="2">
+                                    مد و لوازم جانبی
+                                </option>
+                                <option value="3">
+                                    الکترونیک
+                                </option>
+                                <option value="4">
+                                    خواربارفروشی و بازار
+                                </option>
+                                <option value="5">
+                                    موسیقی
+                                </option>
+                                <option value="6">
+                                    خانه و مبلمان
+                                </option>
+                                <option value="7">
+                                    اسباب بازی و بازی های ویدیویی
+                                </option>
+                                <option value="8">
+                                    هدایا
+                                </option>
+                                <option value="9">
+                                    نوزادان و مادران
+                                </option>
+                                <option value="10">
+                                    ورزش و فضای باز
+                                </option>
+                                <option value="11">
+                                    سلامت و زیبایی
+                                </option>
+                            </select>
+                            <input class="form-control" placeholder="اینجا جستجو کنید ..." type="text"/>
+                            <button class="search-btn" type="submit">
+                                <i class="far fa-search">
+                                </i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-7 col-lg-3 col-xl-4">
+                <div class="header-middle-right">
+                    <ul class="header-middle-list">
+                        <li>
+                            {% if request.user.is_authenticated %}
+                            <a class="list-item" href="{% url "account:profile" %}">
+                                <div class="list-item-icon">
+                                    <i class="far fa-user-circle">
+                                    </i>
+                                </div>
+                                <div class="list-item-info"
+                                    <h5>
+                                        حساب کاربری
+                                    </h5>
+                                    {% else %}
+                                    <a class="list-item" href="{% url "account:login" %}">
+                                        <div class="list-item-icon">
+                                            <i class="far fa-user-circle">
+                                            </i>
+                                        </div>
+                                        <div class="list-item-info">
+                                                <h6>
+                                                   وارد شوید
+                                                </h6>
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                        </li>
+                        <li>
+                            <a class="list-item" href="wishlist.html">
+                                <div class="list-item-icon">
+                                    <i class="far fa-heart">
+                                    </i>
+                                    <span>
+			 0
+			</span>
+                                </div>
+                                <div class="list-item-info">
+                                    <h6>
+                                        ویش لیست
+                                    </h6>
+                                    <h5>
+                                        ایتم های من
+                                    </h5>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown-cart">
+                            <a class="shop-cart list-item" href="{% url "cart:shop_cart" %}">
+                                <div class="list-item-icon">
+                                    <i class="far fa-shopping-bag">
+                                    </i>
+                                    <span>
+			 5
+			</span>
+                                </div>
+                                <div class="list-item-info">
+                                   {% if request.user.is_authenticated %}
+                                    <h6>
+                                        $350.00
+                                    </h6>
+                                    {% else %}
+                                    <h5>
+                                        سبد خرید
+                                    </h5>
+                                    {% endif %}
+                                </div>
+                            </a>
+                            <div class="dropdown-cart-menu">
+                                <div class="dropdown-cart-header">
+			<span>
+			 03 مورد
+			</span>
+                                    <a href="{% url "cart:shop_cart" %}">
+                                        مشاهده سبد خرید
+                                    </a>
+                                </div>
+                                <ul class="dropdown-cart-list">
+                                    <li>
+                                        <div class="dropdown-cart-item">
+                                            <div class="cart-img">
+                                                <a href="shop-single.html">
+                                                    <img alt="#" src="{% static "img/product/b6.png" %}"/>
+                                                </a>
+                                            </div>
+                                            <div class="cart-info">
+                                                <h4>
+                                                    <a href="shop-single.html">
+                                                        ایرپاد آبی اپل
+                                                    </a>
+                                                </h4>
+                                                <p class="cart-qty">
+                                                    1x -
+                                                    <span class="cart-amount">
+				 $200.00
+				</span>
+                                                </p>
+                                            </div>
+                                            <a class="cart-remove" href="#" title="Remove this item">
+                                                <i class="far fa-times-circle">
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-cart-item">
+                                            <div class="cart-img">
+                                                <a href="shop-single.html">
+                                                    <img alt="#" src="{% static "img/product/e1.png" %}"/>
+                                                </a>
+                                            </div>
+                                            <div class="cart-info">
+                                                <h4>
+                                                    <a href="shop-single.html">
+                                                        ایرپاد آبی اپل
+                                                    </a>
+                                                </h4>
+                                                <p class="cart-qty">
+                                                    1x -
+                                                    <span class="cart-amount">
+				 $120.00
+				</span>
+                                                </p>
+                                            </div>
+                                            <a class="cart-remove" href="#" title="Remove this item">
+                                                <i class="far fa-times-circle">
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-cart-item">
+                                            <div class="cart-img">
+                                                <a href="shop-single.html">
+                                                    <img alt="#" src="{% static "img/product/d11.png" %}"/>
+                                                </a>
+                                            </div>
+                                            <div class="cart-info">
+                                                <h4>
+                                                    <a href="shop-single.html">
+                                                        ایرپاد آبی اپل
+                                                    </a>
+                                                </h4>
+                                                <p class="cart-qty">
+                                                    1x -
+                                                    <span class="cart-amount">
+				 $330.00
+				</span>
+                                                </p>
+                                            </div>
+                                            <a class="cart-remove" href="#" title="Remove this item">
+                                                <i class="far fa-times-circle">
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="dropdown-cart-bottom">
+                                    <div class="dropdown-cart-total">
+			 <span>
+			  مجموع
+			 </span>
+                                        <span class="total-amount">
+			  $650.00
+			 </span>
+                                    </div>
+                                    {% if request.user.is_authenticated %}
+                                    <a class="theme-btn" href="shop-checkout.html">
+                                        پرداخت
+                                    </a>
+                                    {% else %}
+                                     <a class="theme-btn" href="{% url "account:login" %}">
+                                       ورود به حساب کاربری
+                                    </a>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

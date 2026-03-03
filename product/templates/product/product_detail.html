@@ -1,0 +1,900 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <!-- preloader -->
+    <div class="preloader">
+        <div class="loader-ripple">
+            <div>
+            </div>
+            <div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader end -->
+    <!-- mobile popup search -->
+    <div class="search-popup">
+        <button class="close-search">
+	<span class="far fa-times">
+	</span>
+        </button>
+        <form action="#">
+            <div class="form-group">
+                <input class="form-control" name="search-field" placeholder="اینجا جستجو کنید ..." required=""
+                       type="search"/>
+                <button type="submit">
+                    <i class="far fa-search">
+                    </i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <!-- mobile popup search end -->
+    <main class="main">
+        <!-- breadcrumb -->
+        <div class="site-breadcrumb">
+            <div class="site-breadcrumb-bg" style="background: url({% static "img/breadcrumb/01.jpg" %})">
+            </div>
+            <div class="container">
+                <div class="site-breadcrumb-wrap">
+                    <h4 class="breadcrumb-title">
+                        تک محصول ۲
+                    </h4>
+                    <ul class="breadcrumb-menu">
+                        <li>
+                            <a href="{% url "home:home" %}">
+                                <i class="far fa-home">
+                                </i>
+                                خانه
+                            </a>
+                        </li>
+                        <li class="active">
+                            تک محصول ۲
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb end -->
+        <!-- shop single -->
+        <div class="shop-single2 bg-2 py-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-lg-6 col-xxl-5">
+                        <div class="shop-single-gallery">
+                            <div class="flexslider-thumbnails" dir="ltr">
+                                <ul class="slides">
+                                    <li data-thumb="assets/img/product/e1.png" rel="adjustX:10, adjustY:">
+                                        <img alt="#" src="{{ product.image.url }}"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 col-xxl-6">
+                        <div class="shop-single-info">
+                            <h4 class="shop-single-title">
+                                {{ product.name }}
+                            </h4>
+                            <div class="shop-single-rating">
+                                <i class="fas fa-star">
+                                </i>
+                                <i class="fas fa-star">
+                                </i>
+                                <i class="fas fa-star">
+                                </i>
+                                <i class="fas fa-star-half-alt">
+                                </i>
+                                <i class="far fa-star">
+                                </i>
+                                <span class="rating-count">
+		  (4 نظر مشتری)
+		 </span>
+                            </div>
+                            {% if product.available %}
+                                <div class="shop-single-price">
+                                    <del>
+                                        {{ product.price }}
+                                    </del>
+                                    <span class="amount">{{ product.price_discount }}</span>
+                                    <span class="discount-percentage">{{ product.discount }}% تخفیف</span>
+                                </div>
+                            {% else %}
+                                <span class="amount text-danger">ناموجود</span>
+                            {% endif %}
+                            <form action="{% url "cart:add_to_cart" product.id %}" method="post">
+                                {% csrf_token %}
+                                <div class="shop-single-cs">
+                                    <div class="row">
+                                        <div class="col-md-3 col-lg-4 col-xl-3">
+                                            <div class="shop-single-size">
+                                                <h6>
+                                                    مقدار
+                                                </h6>
+                                                <div class="shop-cart-qty">
+                                                    <button class="minus-btn" type="button">
+                                                        <i class="fal fa-minus"></i>
+                                                    </button>
+                                                    <input class="quantity" name="quantity" type="text" value="1" />
+                                                    <button class="plus-btn" type="button">
+                                                        <i class="fal fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% if product.size.all %}
+                                            <div class="col-md-3 col-lg-4 col-xl-3 d-flex">
+                                                <div class="shop-single-size">
+                                                    <h6>
+                                                        اندازه
+                                                    </h6>
+                                                    <select class="select" name="size">
+
+                                                        <option value="">انتخاب سایز</option>
+
+                                                        {% for size in product.size.all %}
+                                                            <option value="{{ size.name }}" name="size">
+                                                                {{ size.name }}
+                                                            </option>
+                                                        {% endfor %}
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        <div class="col-md-6 col-lg-12 col-xl-6">
+                                            <div class="shop-single-color">
+                                                <h6>
+                                                    رنگ
+                                                </h6>
+                                                <ul class="shop-checkbox-list color" id="color-options">
+                                                {% for color in product.color.all %}
+                                                  <li>
+                                                   <div class="form-check">
+
+                                                       <input class="form-check-input" name="color" value="{{ color.title }}" id="color-{{ color.title }}" type="radio" />
+                                                       <label class="form-check-label" for="color-{{ color.title }}">
+                                                        <span title="{{ color.title }}" style="background-color:{{ color.name }} ;box-shadow:2px 3px 1px gray "></span>
+                                                      </label>
+                                                   </div>
+                                                  </li>
+                                                {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <div class="shop-single-sortinfo">
+                                <ul>
+                                    <li>
+                                        وضعیت:
+                                        <span>
+                                            {% if product.available %}
+                                                موجود
+                                            {% else %}
+                                                نا موجود
+                                            {% endif %}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        کد:
+                                        <span>676TYWV</span>
+                                    </li>
+                                    <li>
+                                        دسته:
+                                        <span>الکترونیک</span>
+                                    </li>
+                                    <li>
+                                        فروخته شده توسط:
+                                        <a href="#">
+                                            فست شاپ
+                                        </a>
+                                    </li>
+                                    <li>
+                                        برچسب ها:
+                                        <a href="#">
+                                            توصیفات ما
+                                        </a>
+                                        ,
+                                        <a href="#">
+                                            بلوتوث
+                                        </a>
+                                        ,
+                                        <a href="#">
+                                            مدرن
+                                        </a>
+                                        ,
+                                        <a href="#">
+                                            مغازه
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="shop-single-action">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6 col-lg-12 col-xl-6">
+                                        <div class="shop-single-btn">
+                                            <button class="theme-btn" type="submit">
+                                    <span class="far fa-shopping-bag" style="transform: rotate(0);"></span>
+                                    اضافه به سبد
+                                </button>
+                            </form>
+                                            <a class="theme-btn theme-btn2" data-tooltip="tooltip" href="#"
+                                               title="اضافه به ویش لیست">
+			 <span class="far fa-heart" style="transform: rotate(0);">
+			 </span>
+                                            </a>
+                                            <a class="theme-btn theme-btn2" data-tooltip="tooltip" href="#"
+                                               title="اضافه برای مقایسه">
+			 <span class="far fa-arrows-repeat" style="transform: rotate(0);">
+			 </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-12 col-xl-6">
+                                        <div class="shop-single-share">
+			<span>
+			 اشتراک :
+			</span>
+                                            <a href="#">
+                                                <i class="fab fa-facebook-f">
+                                                </i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="fab fa-x-twitter">
+                                                </i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="fab fa-linkedin-in">
+                                                </i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="fab fa-pinterest-p">
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- shop single details -->
+                <div class="shop-single-details">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button aria-controls="tab1" aria-selected="true" class="nav-link active"
+                                    data-bs-target="#tab1" data-bs-toggle="tab" id="nav-tab1" role="tab" type="button">
+                                شرح
+                            </button>
+                            <button aria-controls="tab2" aria-selected="false" class="nav-link" data-bs-target="#tab2"
+                                    data-bs-toggle="tab" id="nav-tab2" role="tab" type="button">
+                                مشخصات
+                            </button>
+                            <button aria-controls="tab3" aria-selected="false" class="nav-link" data-bs-target="#tab3"
+                                    data-bs-toggle="tab" id="nav-tab3" role="tab" type="button">
+                                بررسی ها
+                                (05)
+                            </button>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div aria-labelledby="nav-tab1" class="tab-pane fade show active" id="tab1" role="tabpanel">
+                            <div class="shop-single-desc">
+                                <p class="">{{ product.description }}</p>
+                            </div>
+                        </div>
+                        <div aria-labelledby="nav-tab2" class="tab-pane fade" id="tab2" role="tabpanel">
+                            <div class="shop-single-additional">
+                                <div class="row">
+                                    <div class="col-lg-6 col-xl-5" style="width: 1000px">
+                                        <div class="shop-single-list">
+                                            <h5 class="title">
+                                                مشخصات
+                                            </h5>
+                                            <ul>
+
+                                                {% for info in product.informations.all %}
+                                                    <li>
+                                                        <span>{{ info.title }} :</span>
+                                                        {{ info.text }}
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div aria-labelledby="nav-tab3" class="tab-pane fade" id="tab3" role="tabpanel">
+                            <div class="shop-single-review">
+                                <div class="blog-comments mb-0">
+                                    <h5>
+                                        نظرات (05)
+                                    </h5>
+                                    <div class="blog-comments-wrap">
+                                        <div class="blog-comments-item mt-0">
+                                            <img alt="thumb" src="assets/img/blog/com-1.jpg"/>
+                                            <div class="blog-comments-content">
+                                                <h5>
+                                                    نسترن سلطانی
+                                                </h5>
+                                                <span>
+			  <i class="far fa-clock">
+			  </i>
+			 ۲۰ خرداد ۱۴۰۴
+			 </span>
+                                                <p>
+                                                    Lorem Ipsum به سادگی متن ساختگی صنعت چاپ و حروفچینی است. لورم ایپسوم
+                                                    متن ساختگی استاندارد صنعت از زمانی بوده است که یک چاپگر ناشناس یک
+                                                    گالری از نوع را گرفت و آن را به هم زد تا یک نمونه تایپ بسازد. نه
+                                                    تنها از پنج قرن، بلکه از حروفچینی الکترونیکی جهشی نیز جان سالم به در
+                                                    برده است و اساساً بدون تغییر باقی مانده است. با انتشار برگه&zwnj;های
+                                                    Letraset حاوی معابر Lorem Ipsum و اخیراً با نرم&zwnj;افزار انتشار
+                                                    دسک&zwnj;تاپ مانند Aldus PageMaker از جمله نسخه&zwnj;های Lorem Ipsum
+                                                    رایج شد.
+                                                </p>
+                                                <a href="#">
+                                                    <i class="far fa-reply">
+                                                    </i>
+                                                    پاسخ
+                                                </a>
+                                                <div class="review-rating">
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="blog-comments-item ms-md-5">
+                                            <img alt="thumb" src="assets/img/blog/com-2.jpg"/>
+                                            <div class="blog-comments-content">
+                                                <h5>
+                                                    دانیال دهدشتی
+                                                </h5>
+                                                <span>
+			  <i class="far fa-clock">
+			  </i>
+			 ۲۰ خرداد ۱۴۰۴
+			 </span>
+                                                <p>
+                                                    Lorem Ipsum به سادگی متن ساختگی صنعت چاپ و حروفچینی است. لورم ایپسوم
+                                                    متن ساختگی استاندارد صنعت از زمانی بوده است که یک چاپگر ناشناس یک
+                                                    گالری از نوع را گرفت و آن را به هم زد تا یک نمونه تایپ بسازد. نه
+                                                    تنها از پنج قرن، بلکه از حروفچینی الکترونیکی جهشی نیز جان سالم به در
+                                                    برده است و اساساً بدون تغییر باقی مانده است. با انتشار برگه&zwnj;های
+                                                    Letraset حاوی معابر Lorem Ipsum و اخیراً با نرم&zwnj;افزار انتشار
+                                                    دسک&zwnj;تاپ مانند Aldus PageMaker از جمله نسخه&zwnj;های Lorem Ipsum
+                                                    رایج شد.
+                                                </p>
+                                                <a href="#">
+                                                    <i class="far fa-reply">
+                                                    </i>
+                                                    پاسخ
+                                                </a>
+                                                <div class="review-rating">
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                    <i class="far fa-star">
+                                                    </i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="blog-comments-item">
+                                            <img alt="thumb" src="assets/img/blog/com-3.jpg"/>
+                                            <div class="blog-comments-content">
+                                                <h5>
+                                                    کتی طاهری </h5>
+                                                <span>
+			  <i class="far fa-clock">
+			  </i>
+			 ۲۰ خرداد ۱۴۰۴
+			 </span>
+                                                <p>
+                                                    Lorem Ipsum به سادگی متن ساختگی صنعت چاپ و حروفچینی است. لورم ایپسوم
+                                                    متن ساختگی استاندارد صنعت از زمانی بوده است که یک چاپگر ناشناس یک
+                                                    گالری از نوع را گرفت و آن را به هم زد تا یک نمونه تایپ بسازد. نه
+                                                    تنها از پنج قرن، بلکه از حروفچینی الکترونیکی جهشی نیز جان سالم به در
+                                                    برده است و اساساً بدون تغییر باقی مانده است. با انتشار برگه&zwnj;های
+                                                    Letraset حاوی معابر Lorem Ipsum و اخیراً با نرم&zwnj;افزار انتشار
+                                                    دسک&zwnj;تاپ مانند Aldus PageMaker از جمله نسخه&zwnj;های Lorem Ipsum
+                                                    رایج شد.
+                                                </p>
+                                                <a href="#">
+                                                    <i class="far fa-reply">
+                                                    </i>
+                                                    پاسخ
+                                                </a>
+                                                <div class="review-rating">
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                    <i class="fas fa-star">
+                                                    </i>
+                                                    <i class="fas fa-star-half-alt">
+                                                    </i>
+                                                    <i class="far fa-star">
+                                                    </i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="blog-comments-form">
+                                        <h4 class="mb-4">
+                                            نظر بدهید
+                                        </h4>
+                                        <form action="#">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input class="form-control" placeholder="نام شما*" type="text"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input class="form-control" placeholder="ایمیل شما*"
+                                                               type="email"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input class="form-control" placeholder="موضوع شما*"
+                                                               type="text"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <select class="form-control form-select">
+                                                            <option value="">
+                                                                رتبه شما
+                                                            </option>
+                                                            <option value="5">
+                                                                2 ستاره
+                                                            </option>
+                                                            <option value="4">
+                                                                4 ستاره
+                                                            </option>
+                                                            <option value="3">
+                                                                3 ستاره
+                                                            </option>
+                                                            <option value="2">
+                                                                2 ستاره
+                                                            </option>
+                                                            <option value="1">
+                                                                1 ستاره
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" placeholder="نظر شما*"
+                                                                  rows="5"></textarea>
+                                                    </div>
+                                                    <button class="theme-btn" type="submit">
+			   <span class="far fa-paper-plane">
+			   </span>
+                                                        ارسال نظر
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- shop single details end -->
+                <!-- similar item shop -->
+                <div class="seller-area pt-50 pb-60">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="site-heading-inline">
+                                    <h2 class="site-title">
+                                        همچنین موجود در
+                                    </h2>
+                                    <a href="#">
+                                        مشاهده بیشتر
+                                        <i class="fas fa-arrow-left">
+                                        </i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="seller-item">
+                                    <div class="seller-img">
+                                        <a href="#">
+                                            <img alt="" src="assets/img/seller/01.png"/>
+                                        </a>
+                                    </div>
+                                    <a class="seller-title" href="#">
+                                        فست شاپ
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="seller-item">
+                                    <div class="seller-img">
+                                        <a href="#">
+                                            <img alt="" src="assets/img/seller/02.png"/>
+                                        </a>
+                                    </div>
+                                    <a class="seller-title" href="#">
+                                        فروشگاه Borcelle
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="seller-item">
+                                    <div class="seller-img">
+                                        <a href="#">
+                                            <img alt="" src="assets/img/seller/03.png"/>
+                                        </a>
+                                    </div>
+                                    <a class="seller-title" href="#">فروشگاه فرادال</a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="seller-item">
+                                    <div class="seller-img">
+                                        <a href="#">
+                                            <img alt="" src="assets/img/seller/04.png"/>
+                                        </a>
+                                    </div>
+                                    <a class="seller-title" href="#">
+                                        فروشگاه Liceria
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="seller-item">
+                                    <div class="seller-img">
+                                        <a href="#">
+                                            <img alt="" src="assets/img/seller/05.png"/>
+                                        </a>
+                                    </div>
+                                    <a class="seller-title" href="#">
+                                        فروشگاه مد
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="seller-item">
+                                    <div class="seller-img">
+                                        <a href="#">
+                                            <img alt="" src="assets/img/seller/06.png"/>
+                                        </a>
+                                    </div>
+                                    <a class="seller-title" href="#">
+                                        فروشگاه سریع
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="seller-item">
+                                    <div class="seller-img">
+                                        <a href="#">
+                                            <img alt="" src="assets/img/seller/07.png"/>
+                                        </a>
+                                    </div>
+                                    <a class="seller-title" href="#">
+                                        فروشگاه سباستین
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="seller-item">
+                                    <div class="seller-img">
+                                        <a href="#">
+                                            <img alt="" src="assets/img/seller/08.png"/>
+                                        </a>
+                                    </div>
+                                    <a class="seller-title" href="#">
+                                        فروشگاه Jiorox
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- similar item shop end -->
+                <!-- related item -->
+                <div class="product-area related-item pt-20">
+                    <div class="container px-0">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="site-heading-inline">
+                                    <h2 class="site-title">
+                                        موارد مرتبط
+                                    </h2>
+                                    <a href="#">
+                                        مشاهده بیشتر
+                                        <i class="fas fa-arrow-left">
+                                        </i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-4 item-2">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-img">
+		   <span class="type new">
+			جدید
+		   </span>
+                                        <a href="shop-single.html">
+                                            <img alt="" src="assets/img/product/e7.png"/>
+                                        </a>
+                                        <div class="product-action-wrap">
+                                            <div class="product-action">
+                                                <a data-bs-placement="right" data-bs-target="#quickview"
+                                                   data-bs-toggle="modal" data-tooltip="tooltip" href="#"
+                                                   title="نگاهی سریع">
+                                                    <i class="far fa-eye">
+                                                    </i>
+                                                </a>
+                                                <a data-bs-placement="right" data-tooltip="tooltip" href="#"
+                                                   title="اضافه به ویش لیست">
+                                                    <i class="far fa-heart">
+                                                    </i>
+                                                </a>
+                                                <a data-bs-placement="right" data-tooltip="tooltip" href="#"
+                                                   title="اضافه برای مقایسه">
+                                                    <i class="far fa-arrows-repeat">
+                                                    </i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="product-title">
+                                            <a href="shop-single.html">
+                                                ایرپاد اپل آبی
+                                            </a>
+                                        </h3>
+                                        <div class="product-rate">
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="far fa-star">
+                                            </i>
+                                        </div>
+                                        <div class="product-bottom">
+                                            <div class="product-price">
+			 <span>
+			  $100.00
+			 </span>
+                                            </div>
+                                            <button class="product-cart-btn" data-bs-placement="left"
+                                                    data-tooltip="tooltip" title="اضافه به سبد" type="button">
+                                                <i class="far fa-shopping-bag">
+                                                </i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-img">
+		   <span class="type hot">
+			جدید
+		   </span>
+                                        <a href="shop-single.html">
+                                            <img alt="" src="assets/img/product/a8.png"/>
+                                        </a>
+                                        <div class="product-action-wrap">
+                                            <div class="product-action">
+                                                <a data-bs-placement="right" data-bs-target="#quickview"
+                                                   data-bs-toggle="modal" data-tooltip="tooltip" href="#"
+                                                   title="نگاهی سریع">
+                                                    <i class="far fa-eye">
+                                                    </i>
+                                                </a>
+                                                <a data-bs-placement="right" data-tooltip="tooltip" href="#"
+                                                   title="اضافه به ویش لیست">
+                                                    <i class="far fa-heart">
+                                                    </i>
+                                                </a>
+                                                <a data-bs-placement="right" data-tooltip="tooltip" href="#"
+                                                   title="اضافه برای مقایسه">
+                                                    <i class="far fa-arrows-repeat">
+                                                    </i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="product-title">
+                                            <a href="shop-single.html">
+                                                ایرپاد اپل آبی
+                                            </a>
+                                        </h3>
+                                        <div class="product-rate">
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="far fa-star">
+                                            </i>
+                                        </div>
+                                        <div class="product-bottom">
+                                            <div class="product-price">
+			 <span>
+			  $100.00
+			 </span>
+                                            </div>
+                                            <button class="product-cart-btn" data-bs-placement="left"
+                                                    data-tooltip="tooltip" title="اضافه به سبد" type="button">
+                                                <i class="far fa-shopping-bag">
+                                                </i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-img">
+		   <span class="type oos">
+			موجود نیست
+		   </span>
+                                        <a href="shop-single.html">
+                                            <img alt="" src="assets/img/product/d2.png"/>
+                                        </a>
+                                        <div class="product-action-wrap">
+                                            <div class="product-action">
+                                                <a data-bs-placement="right" data-bs-target="#quickview"
+                                                   data-bs-toggle="modal" data-tooltip="tooltip" href="#"
+                                                   title="نگاهی سریع">
+                                                    <i class="far fa-eye">
+                                                    </i>
+                                                </a>
+                                                <a data-bs-placement="right" data-tooltip="tooltip" href="#"
+                                                   title="اضافه به ویش لیست">
+                                                    <i class="far fa-heart">
+                                                    </i>
+                                                </a>
+                                                <a data-bs-placement="right" data-tooltip="tooltip" href="#"
+                                                   title="اضافه برای مقایسه">
+                                                    <i class="far fa-arrows-repeat">
+                                                    </i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="product-title">
+                                            <a href="shop-single.html">
+                                                ایرپاد اپل آبی
+                                            </a>
+                                        </h3>
+                                        <div class="product-rate">
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="far fa-star">
+                                            </i>
+                                        </div>
+                                        <div class="product-bottom">
+                                            <div class="product-price">
+			 <span>
+			  $100.00
+			 </span>
+                                            </div>
+                                            <button class="product-cart-btn" data-bs-placement="left"
+                                                    data-tooltip="tooltip" title="اضافه به سبد" type="button">
+                                                <i class="far fa-shopping-bag">
+                                                </i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-img">
+		   <span class="type discount">
+			10% تخفیف
+		   </span>
+                                        <a href="shop-single.html">
+                                            <img alt="" src="assets/img/product/f4.png"/>
+                                        </a>
+                                        <div class="product-action-wrap">
+                                            <div class="product-action">
+                                                <a data-bs-placement="right" data-bs-target="#quickview"
+                                                   data-bs-toggle="modal" data-tooltip="tooltip" href="#"
+                                                   title="نگاهی سریع">
+                                                    <i class="far fa-eye">
+                                                    </i>
+                                                </a>
+                                                <a data-bs-placement="right" data-tooltip="tooltip" href="#"
+                                                   title="اضافه به ویش لیست">
+                                                    <i class="far fa-heart">
+                                                    </i>
+                                                </a>
+                                                <a data-bs-placement="right" data-tooltip="tooltip" href="#"
+                                                   title="اضافه برای مقایسه">
+                                                    <i class="far fa-arrows-repeat">
+                                                    </i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="product-title">
+                                            <a href="shop-single.html">
+                                                ایرپاد اپل آبی
+                                            </a>
+                                        </h3>
+                                        <div class="product-rate">
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="fas fa-star">
+                                            </i>
+                                            <i class="far fa-star">
+                                            </i>
+                                        </div>
+                                        <div class="product-bottom">
+                                            <div class="product-price">
+                                                <del>
+                                                    $120.00
+                                                </del>
+                                                <span>
+			  $100.00
+			 </span>
+                                            </div>
+                                            <button class="product-cart-btn" data-bs-placement="left"
+                                                    data-tooltip="tooltip" title="اضافه به سبد" type="button">
+                                                <i class="far fa-shopping-bag">
+                                                </i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- related item end -->
+            </div>
+        </div>
+        <!-- shop single end -->
+    </main>
+{% endblock %}

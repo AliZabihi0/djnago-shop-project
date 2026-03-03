@@ -1,0 +1,14 @@
+@font-face {
+    font-family:  Vazirmatn-Bold;
+    src: url("../fonts/Vazirmatn-Bold.ttf");
+    font-weight: normal;
+
+
+
+}
+
+* {
+    font-family: Vazirmatn-Bold, serif;
+    font-size: 16px;
+
+}

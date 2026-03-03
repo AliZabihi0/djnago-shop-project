@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دراپ باکس کشویی</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <style>
+        .dropdown-menu {
+            background-color: #0d6efd;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item {
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #0b5ed7;
+            color: white;
+        }
+
+        .dropdown-item.active {
+            background-color: #0b5ed7;
+        }
+
+        .dropdown-toggle::after {
+            color: white;
+        }
+
+        .dropdown-toggle {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .dropdown-toggle:hover {
+            background-color: #0b5ed7;
+            color: white;
+        }
+
+        .dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+        <h2 class="text-center mb-4 mt-5">دراپ باکس کشویی با اپشن</h2>
+
+        <div class="select-container">
+            <select class="custom-select form-select form-select-lg" id="addressSelect">
+                <option value="" disabled selected>انتخاب آدرس</option>
+                <option value="1">تهران، خیابان ولیعصر، پلاک ۱۲۳</option>
+                <option value="2">اصفهان، خیابان مطهری، پلاک ۴۵۶</option>
+                <option value="3">مشهد، خیابان دانشگاه، پلاک ۷۸۹</option>
+                <option value="4">تبریز، خیابان پیامبر، پلاک ۳۲۱</option>
+                <option value="5">شیراز، خیابان گلستان، پلاک ۶۵۴</option>
+                <option value="6">کرج، خیابان مهدی، پلاک ۹۸۷</option>
+                <option value="7">یزد، خیابان امام، پلاک ۴۳۲</option>
+                <option value="8">ارومیه، خیابان معلم، پلاک ۷۶۵</option>
+            </select>
+        </div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="showSelected()">نمایش انتخاب شده</button>
+            <p id="selectedResult" class="mt-3"></p>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+ <script>
+        function showSelected() {
+            const select = document.getElementById('addressSelect');
+            const selectedText = select.options[select.selectedIndex].text;
+            const selectedValue = select.value;
+
+            if (selectedValue !== "") {
+                document.getElementById('selectedResult').innerHTML =
+                    '<strong>آدرس انتخاب شده:</strong> ' + selectedText;
+            } else {
+                document.getElementById('selectedResult').innerHTML =
+                    '<span class="text-danger">لطفاً یک آدرس را انتخاب کنید</span>';
+            }
+        }
+
+        // اضافه کردن رویداد تغییر
+        document.getElementById('addressSelect').addEventListener('change', function() {
+            const selectedText = this.options[this.selectedIndex].text;
+            console.log('آدرس انتخاب شده:', selectedText);
+        });
+    </script>
+</body>
+</html>

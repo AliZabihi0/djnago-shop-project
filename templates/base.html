@@ -1,0 +1,44 @@
+{% load static %}
+{% include "includes/head.html" %}
+<body>
+
+<!-- header area -->
+<header class="header">
+    <!-- header top -->
+    {% include "includes/header-top.html" %}
+    <!-- header top end -->
+    <!-- header middle -->
+   {% include "includes/header-middle.html" %}
+    <!-- header middle end -->
+    <!-- navbar -->
+    {%  include "includes/navbar.html" %}
+    <!-- navbar end -->
+</header>
+<!-- header area end -->
+
+
+
+{% block content %}
+
+{% endblock %}
+
+
+<!-- footer area -->
+{% include "includes/footer-area.html" %}
+<!-- footer area end -->
+<!-- scroll-top -->
+<a href="#" id="scroll-top">
+    <i class="far fa-arrow-up-from-arc">
+    </i>
+</a>
+<!-- scroll-top end -->
+<!-- modal quick shop-->
+{%  include "includes/modal-quick-shop.html" %}
+<!-- modal quick shop end -->
+<!-- js -->
+{% include "includes/js.html" %}
+
+</body>
+
+<!-- Mirrored from www.iarsalan.ir/template/mocart/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Oct 2025 19:27:49 GMT -->
+</html>

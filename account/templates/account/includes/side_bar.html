@@ -1,0 +1,230 @@
+{% load static %}
+<div class="user-area bg-2 py-100">
+	<div class="container">
+	 <div class="row">
+	  <div class="col-lg-3">
+	   <div class="sidebar">
+		<div class="sidebar-top">
+		 <div class="sidebar-profile-img">
+		  <img alt="" src="{% static 'img/account/03.jpg' %}"/>
+		  <button class="profile-img-btn" type="button">
+		   <i class="far fa-camera">
+		   </i>
+		  </button>
+		  <input class="profile-img-file" type="file"/>
+		 </div>
+		 <h5>
+		  نسترن سلطانی
+		 </h5>
+		 <p>
+		  <a class="__cf_email__" data-cfemail="8eefe0fae1e0e7ceebf6efe3fee2eba0ede1e3" href="#">
+		   [ایمیل محافظت شده]
+		  </a>
+		 </p>
+		</div>
+		<ul class="sidebar-list">
+		 <li>
+		  <a class="active" href="dashboard.html">
+		   <i class="far fa-gauge-high">
+		   </i>
+		   داشبورد
+		  </a>
+		 </li>
+		 <li class="user-menu">
+		  <a aria-controls="user-menu1" aria-expanded="false" class="collapsed" data-bs-toggle="collapse" href="#user-menu1">
+		   <i class="far fa-user-friends">
+		   </i>
+		   فروشنده
+		   <i class="far fa-angle-down user-menu-angle">
+		   </i>
+		  </a>
+		  <div class="collapse" id="user-menu1">
+		   <ul class="user-menu-list">
+			<li>
+			 <a href="vendors.html">
+			  همه فروشگاه ها
+			 </a>
+			</li>
+			<li>
+			 <a href="vendor-profile.html">
+			  پروفایل فروشنده
+			 </a>
+			</li>
+			<li>
+			 <a href="vendor-store.html">
+			  فروشگاه فروشنده
+			 </a>
+			</li>
+			<li>
+			 <a href="vendor-product.html">
+			  محصولات فروشنده
+			 </a>
+			</li>
+			<li>
+			 <a href="vendor-product-add.html">
+			  افزودن محصول فروشنده
+			 </a>
+			</li>
+			<li>
+			 <a href="vendor-payout.html">
+			  پرداخت فروشنده
+			 </a>
+			</li>
+		   </ul>
+		  </div>
+		 </li>
+		 <li>
+		  <a href="{% url "account:profile"  %}">
+		   <i class="far fa-user">
+		   </i>
+		   پروفایل من
+		  </a>
+		 </li>
+		 <li class="user-menu">
+		  <a aria-controls="user-menu2" aria-expanded="false" class="collapsed" data-bs-toggle="collapse" href="#user-menu2">
+		   <i class="far fa-shopping-bag">
+		   </i>
+		   دکوراسیون
+		   <i class="far fa-angle-down user-menu-angle">
+		   </i>
+		  </a>
+		  <div class="collapse" id="user-menu2">
+		   <ul class="user-menu-list">
+			<li>
+			 <a href="order-list.html">
+			  لیست سفارشات
+			 </a>
+			</li>
+			<li>
+			 <a href="order-detail.html">
+			  فروشگاه گرید
+			 </a>
+			</li>
+			<li>
+			 <a href="order-track.html">
+			  وضعیت سفارش
+			 </a>
+			</li>
+		   </ul>
+		  </div>
+		 </li>
+		 <li>
+		  <a href="wishlist.html">
+		   <i class="far fa-heart">
+		   </i>
+		   ویش لیست من
+		  </a>
+		 </li>
+		 <li class="user-menu">
+		  <a aria-controls="user-menu3" aria-expanded="false" class="collapsed" data-bs-toggle="collapse" href="#user-menu3">
+		   <i class="far fa-location-dot">
+		   </i>
+		   آدرس
+		   <i class="far fa-angle-down user-menu-angle">
+		   </i>
+		  </a>
+		  <div class="collapse" id="user-menu3">
+		   <ul class="user-menu-list">
+			<li>
+			 <a href="{% url 'account:list_address' %}">
+			  لیست آدرس
+			 </a>
+			</li>
+			<li>
+			 <a href="{% url 'account:add_address' %}">
+			  آدرس افزودن
+			 </a>
+			</li>
+		   </ul>
+		  </div>
+		 </li>
+		 <li class="user-menu">
+		  <a aria-controls="user-menu4" aria-expanded="false" class="collapsed" data-bs-toggle="collapse" href="#user-menu4">
+		   <i class="far fa-headset">
+		   </i>
+		   بلیط های پشتیبانی
+		   <i class="far fa-angle-down user-menu-angle">
+		   </i>
+		  </a>
+		  <div class="collapse" id="user-menu4">
+		   <ul class="user-menu-list">
+			<li>
+			 <a href="support-ticket.html">
+			  بلیط های پشتیبانی
+			 </a>
+			</li>
+			<li>
+			 <a href="support-ticket-detail.html">
+			  جزئیات بلیط پشتیبانی
+			 </a>
+			</li>
+		   </ul>
+		  </div>
+		 </li>
+		 <li class="user-menu">
+		  <a aria-controls="user-menu5" aria-expanded="false" class="collapsed" data-bs-toggle="collapse" href="#user-menu5">
+		   <i class="far fa-wallet">
+		   </i>
+		   روش های پرداخت
+		   <i class="far fa-angle-down user-menu-angle">
+		   </i>
+		  </a>
+		  <div class="collapse" id="user-menu5">
+		   <ul class="user-menu-list">
+			<li>
+			 <a href="payment-method.html">
+			  روش های پرداخت
+			 </a>
+			</li>
+			<li>
+			 <a href="payment-add.html">
+			  افزودن پرداخت
+			 </a>
+			</li>
+		   </ul>
+		  </div>
+		 </li>
+		 <li>
+		  <a href="transaction.html">
+		   <i class="far fa-credit-card">
+		   </i>
+		   معامله
+		  </a>
+		 </li>
+		 <li>
+		  <a href="notification.html">
+		   <i class="far fa-bell">
+		   </i>
+		   اطلاع رسانی
+		   <span class="badge badge-danger">
+			02
+		   </span>
+		  </a>
+		 </li>
+		 <li>
+		  <a href="message.html">
+		   <i class="far fa-envelope">
+		   </i>
+		   پیام ها
+		   <span class="badge badge-danger">
+			02
+		   </span>
+		  </a>
+		 </li>
+		 <li>
+		  <a href="setting.html">
+		   <i class="far fa-gear">
+		   </i>
+		   تنظیمات
+		  </a>
+		 </li>
+		 <li>
+		  <a href="{% url "account:logout" %}">
+		   <i class="far fa-sign-out">
+		   </i>
+		   خروج از سیستم
+		  </a>
+		 </li>
+		</ul>
+	   </div>
+	  </div>

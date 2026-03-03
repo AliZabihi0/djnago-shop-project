@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- mobile popup search -->
+  <div class="search-popup">
+   <button class="close-search">
+	<span class="far fa-times">
+	</span>
+   </button>
+   <form action="#">
+	<div class="form-group">
+	 <input class="form-control" name="search-field" placeholder="اینجا جستجو کنید ..." required="" type="search"/>
+	 <button type="submit">
+	  <i class="far fa-search">
+	  </i>
+	 </button>
+	</div>
+   </form>
+  </div>
+  <!-- mobile popup search end -->
+  <main class="main">
+   <!-- breadcrumb -->
+   <div class="site-breadcrumb">
+	<div class="site-breadcrumb-bg" style="background: url({% static "img/breadcrumb/01.jpg" %})">
+	</div>
+	<div class="container">
+	 <div class="site-breadcrumb-wrap">
+	  <h4 class="breadcrumb-title">
+	   پروفایل من
+	  </h4>
+	  <ul class="breadcrumb-menu">
+	   <li>
+		<a href="{% url "home:home" %}">
+		 <i class="far fa-home">
+		 </i>
+		 خانه
+		</a>
+	   </li>
+	   <li class="active">
+		پروفایل من
+	   </li>
+	  </ul>
+	 </div>
+	</div>
+   </div>
+   <!-- breadcrumb end -->
+   <!-- user profile -->
+    {% include "account/includes/side_bar.html" %}
+	  <div class="col-lg-9">
+	   <div class="user-wrapper">
+		<div class="row">
+		 <div class="col-lg-12">
+		  <div class="user-card">
+		   <h4 class="user-card-title">
+			اطلاعات پروفایل
+		   </h4>
+		   <div class="user-form">
+			<form action="#" method="post">
+                {% csrf_token %}
+			 <div class="row">
+			  <div class="col-md-6">
+			   <div class="form-group">
+				<label>
+				 نام
+				</label>
+
+				{{ form.first_name }}
+
+			   </div>
+			  </div>
+			  <div class="col-md-6">
+			   <div class="form-group">
+				<label>
+				 نام خانوادگی
+				</label>
+                    {{ form.last_name }}
+			   </div>
+			  </div>
+			  <div class="col-md-6">
+			   <div class="form-group">
+				<label>
+				 ایمیل
+				</label>
+                {{ form.email }}
+			   </div>
+			  </div>
+			  <div class="col-md-6">
+			   <div class="form-group">
+				<label>
+				 تلفن
+				</label>
+                {{ form.phone }}
+			   </div>
+			  </div>
+			  <div class="col-md-12">
+			   <div class="form-group">
+				<label>
+				 آدرس
+				</label>
+                {{ form.address }}
+			   </div>
+			  </div>
+			 </div>
+			 <button class="theme-btn" type="submit">
+			  <span class="far fa-user" style="transform: rotate(0);">
+			  </span>
+			  ذخیره تغییرات
+			 </button>
+			</form>
+		   </div>
+		  </div>
+		 </div>
+		 <div class="col-lg-12">
+		  <div class="user-card">
+		   <h4 class="user-card-title">
+			رمز عبور را تغییر دهید
+		   </h4>
+		   <div class="col-lg-12">
+			<div class="user-form">
+			 <form action="#">
+			  <div class="row">
+			   <div class="col-md-12">
+				<div class="form-group">
+				 <label>
+				  رمز عبور قدیمی
+				 </label>
+				 <input class="form-control" placeholder="رمز عبور قدیمی" type="password"/>
+				</div>
+			   </div>
+			   <div class="col-md-12">
+				<div class="form-group">
+				 <label>
+				  رمز عبور جدید
+				 </label>
+				 <input class="form-control" placeholder="رمز عبور جدید" type="password"/>
+				</div>
+			   </div>
+			   <div class="col-md-12">
+				<div class="form-group">
+				 <label>
+				  رمز عبور را دوباره تایپ کنید
+				 </label>
+				 <input class="form-control" placeholder="رمز عبور را دوباره تایپ کنید" type="password"/>
+				</div>
+			   </div>
+			  </div>
+			  <button class="theme-btn" type="submit">
+			   <span class="far fa-key" style="transform: rotate(0);">
+			   </span>
+			   رمز عبور را تغییر دهید
+			  </button>
+			 </form>
+			</div>
+		   </div>
+		  </div>
+		 </div>
+		</div>
+	   </div>
+	  </div>
+	 </div>
+	</div>
+   </div>
+   <!-- user profile end -->
+  </main>
+{% endblock %}
