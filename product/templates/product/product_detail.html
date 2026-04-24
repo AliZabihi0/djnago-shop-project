@@ -182,7 +182,9 @@
                                     </li>
                                     <li>
                                         دسته:
-                                        <span>الکترونیک</span>
+                                        {% for category in product.category.all %}
+                                        <a href="#">{{ category.name }}</a>
+                                        {% endfor %}
                                     </li>
                                     <li>
                                         فروخته شده توسط:
