@@ -651,7 +651,7 @@
              {% if page_obj.has_other_pages %}
                  {% if page_obj.has_previous %}
                      <li class="page-item">
-		                 <a aria-label="Previous" class="page-link" href="#">
+		                 <a aria-label="Previous" class="page-link" href="?page={{ posts.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
 			                 <span aria-hidden="true">
 			                     <i class="far fa-arrow-right"></i>
 		                     </span>
@@ -661,17 +661,17 @@
                  {% for i in page_obj.paginator.page_range %}
                      {% if page_obj.number == i %}
                          <li class="page-item active">
-		                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+		                    <a class="page-link" href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
                          </li>
                      {% else %}
                          <li class="page-item">
-		                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+		                    <a class="page-link" href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
                          </li>
                      {% endif %}
                  {% endfor %}
                  {% if page_obj.has_next %}
                       <li class="page-item">
-		              <a aria-label="Next" class="page-link" href="#">
+		              <a aria-label="Next" class="page-link" href="?page={{ posts.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">
 		            	<span aria-hidden="true">
                      <i class="far fa-arrow-left">
 			         </i>

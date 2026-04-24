@@ -11,7 +11,7 @@
             </div>
             <div class="d-none d-lg-block col-lg-6 col-xl-5">
                 <div class="header-middle-search">
-                    <form action="#">
+                    <form action="{% url "product:search" %}" method="get">
                         <div class="search-content">
                             <select class="select">
                                 <option value="">
@@ -55,6 +55,7 @@
                             <button class="search-btn" type="submit">
                                 <i class="far fa-search">
                                 </i>
+
                             </button>
                         </div>
                     </form>

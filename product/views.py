@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView
 
@@ -13,8 +14,10 @@ class ProductListView(ListView):
     template_name = 'product/product_list.html'
     queryset = Product.objects.all()
     paginate_by = 1
+    search_fields = ['title', 'description', 'price']
+
 
 def search_product(request):
     q = request.GET.get('q')
     products = Product.objects.filter(name__icontains=q)
-    return render(request, 'product/product_list.html', {'products': products})
+    return render(request, 'product/product_list.html', {'product_list': products})
