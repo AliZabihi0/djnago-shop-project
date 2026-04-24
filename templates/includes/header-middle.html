@@ -51,7 +51,7 @@
                                     سلامت و زیبایی
                                 </option>
                             </select>
-                            <input class="form-control" placeholder="اینجا جستجو کنید ..." type="text"/>
+                            <input class="form-control" name="q" value="{% if request.GET.q %}{{ request.GET.q }} {% endif %}" placeholder="اینجا جستجو کنید ..." type="text"/>
                             <button class="search-btn" type="submit">
                                 <i class="far fa-search">
                                 </i>

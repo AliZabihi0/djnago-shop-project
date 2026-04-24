@@ -13,3 +13,8 @@ class ProductListView(ListView):
     template_name = 'product/product_list.html'
     queryset = Product.objects.all()
     paginate_by = 1
+
+def search_product(request):
+    q = request.GET.get('q')
+    products = Product.objects.filter(name__icontains=q)
+    return render(request, 'product/product_list.html', {'products': products})
