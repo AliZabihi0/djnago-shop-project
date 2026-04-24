@@ -7,7 +7,7 @@ from django.views.generic import FormView, ListView, CreateView
 from django.shortcuts import render, redirect
 from account.forms import LoginForm, RegisterForm, ProfileForm, AddressForm
 from random import randint
-import ghasedak_sms
+
 
 from account.models import User, Address
 
