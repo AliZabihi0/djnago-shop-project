@@ -12,10 +12,6 @@ class ProductDetailView(DetailView):
     template_name = 'product/product_detail.html'
 
 class ProductView(View):
-    # model = Product
-    # template_name = 'product/product_list.html'
-    # queryset = Product.objects.all()
-    # paginate_by = 1
     def get(self, request):
         products = Product.objects.all()
         page_obj,page_range=paginator_list(request,products)
