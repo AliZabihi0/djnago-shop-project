@@ -11,3 +11,8 @@ class Home(TemplateView):
 class ContactFormView(FormView):
     form_class = ContactForm
     template_name = "home/contact.html"
+    success_url = "/"
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
