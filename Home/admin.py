@@ -4,5 +4,13 @@ from django.contrib import admin
 
 from Home.models import Message
 
-# Register your models here.
-admin.site.register(Message)
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ("مشخصات", {'fields': ('name', 'email',)}),
+        ("موضوع", {'fields': ('subject',)}),
+        ("پیام", {'fields': ('message',)}),
+    ]
+    list_display = ['name', 'email', 'subject']
+
