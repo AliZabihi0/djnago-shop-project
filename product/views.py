@@ -2,6 +2,8 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.views import View
 from django.views.generic import DetailView, ListView, FormView
+
+from .forms import ContactForm
 from .paginator import paginator_list
 
 from product.models import Product
@@ -25,5 +27,8 @@ def search_product(request):
     return render(request, 'product/product_list.html', {'product_list': page_obj ,'page_range': page_range})
 
 
+class ContactFormView(FormView):
+    form_class = ContactForm
+    template_name = "product/contact.html"
 
 
