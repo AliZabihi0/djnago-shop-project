@@ -10,4 +10,4 @@ class Home(TemplateView):
 
 class ContactFormView(FormView):
     form_class = ContactForm
-    template_name = "product/contact.html"
+    template_name = "home/contact.html"

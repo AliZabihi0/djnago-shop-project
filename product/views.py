@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic import DetailView, ListView, FormView
 
-from .forms import ContactForm
+
 from .paginator import paginator_list
 
 from product.models import Product
