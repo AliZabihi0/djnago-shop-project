@@ -27,8 +27,5 @@ def search_product(request):
     return render(request, 'product/product_list.html', {'product_list': page_obj ,'page_range': page_range})
 
 
-class ContactFormView(FormView):
-    form_class = ContactForm
-    template_name = "product/contact.html"
 
 

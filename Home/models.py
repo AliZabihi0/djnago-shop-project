@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+class Message(models.Model):
+    name = models.CharField(max_length=100, verbose_name="نام")
+    email = models.EmailField(verbose_name="ایمیل")
+    subject = models.CharField(max_length=100, verbose_name="عنوان")
+    message = models.TextField(verbose_name="پیام")

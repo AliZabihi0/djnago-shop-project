@@ -70,3 +70,4 @@ class Information(models.Model):
     class Meta:
         verbose_name_plural = 'مشخصات محصولات'
         verbose_name = 'مشخصات'
+
