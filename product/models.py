@@ -87,8 +87,8 @@ class Comment(models.Model):
     created = JalaliDateTimeField()
 
     class Meta:
-        verbose_name_plural = 'مشخصات محصولات'
-        verbose_name = 'مشخصات'
+        verbose_name_plural = 'نظرات'
+        verbose_name = 'نظر'
 
     def __str__(self):
         return f"{self.author} - {self.body}"
