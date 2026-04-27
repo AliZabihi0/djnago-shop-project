@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.core.checks import Info
 
-from product.models import Product, Size, Color, Information, Category
+from product.models import Product, Size, Color, Information, Category, Comment
 
 
 class InformationAdmin(admin.StackedInline):
@@ -20,7 +20,14 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ['name','price','available','id']
     inlines = [InformationAdmin]
 
-
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ("مشخصات", {'fields': ('author',)}),
+        ("موضوع", {'fields': ('post','body')}),
+        ("ریپلای", {'fields': ('parent',)}),
+    ]
+    list_display = ['author', 'post', 'body']
 
 
 

@@ -3,8 +3,9 @@ from tabnanny import verbose
 from django.db import models
 
 from account.models import User
-from jalali_date_new.fields import JalaliDateTimeField,JalaliDateField
+from jalali_date_new.fields import JalaliDateTimeField, JalaliDateField
 from jalali_date_new.widgets import AdminJalaliDateTimeWidget, AdminJalaliTimeWidget, AdminJalaliDateWidget
+
 
 class Size(models.Model):
     name = models.CharField(max_length=20)
@@ -50,7 +51,7 @@ class Product(models.Model):
     size = models.ManyToManyField(Size, related_name='product', verbose_name="سایز")
     color = models.ManyToManyField(Color, related_name='product', verbose_name="رنگ")
     available = models.BooleanField(default=True, verbose_name="موجود")
-    category = models.ManyToManyField(Category,verbose_name="دسته بندی")
+    category = models.ManyToManyField(Category, verbose_name="دسته بندی")
 
     def save(self, *args, **kwargs):
         self.price_discount = self.price - (self.price * self.discount / 100)
@@ -76,9 +77,19 @@ class Information(models.Model):
         verbose_name_plural = 'مشخصات محصولات'
         verbose_name = 'مشخصات'
 
+
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments", verbose_name="نویسنده")
     body = models.TextField(verbose_name="متن")
     post = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comments", verbose_name="پست")
-    parent = models.ForeignKey("self", on_delete=models.CASCADE, blank=True, null=True, related_name="replies", verbose_name="پدر")
+    parent = models.ForeignKey("self", on_delete=models.CASCADE, blank=True, null=True, related_name="replies",
+                               verbose_name="پدر")
     created = JalaliDateTimeField()
+
+    class Meta:
+        verbose_name_plural = 'مشخصات محصولات'
+        verbose_name = 'مشخصات'
+
+    def __str__(self):
+        return f"{self.author} - {self.body}"
+
