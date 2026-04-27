@@ -1,5 +1,10 @@
+from tabnanny import verbose
+
 from django.db import models
 
+from account.models import User
+from jalali_date_new.fields import JalaliDateTimeField,JalaliDateField
+from jalali_date_new.widgets import AdminJalaliDateTimeWidget, AdminJalaliTimeWidget, AdminJalaliDateWidget
 
 class Size(models.Model):
     name = models.CharField(max_length=20)
@@ -71,3 +76,9 @@ class Information(models.Model):
         verbose_name_plural = 'مشخصات محصولات'
         verbose_name = 'مشخصات'
 
+class Comment(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments", verbose_name="نویسنده")
+    body = models.TextField(verbose_name="متن")
+    post = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comments", verbose_name="پست")
+    parent = models.ForeignKey("self", on_delete=models.CASCADE, blank=True, null=True, related_name="replies", verbose_name="پدر")
+    created = JalaliDateTimeField()
